@@ -11,4 +11,4 @@ Twitter bot using Twitter APIs
 
 ### Files
 * **my_twitter_bot.py** - This is the main py file that includes all the logic.
-* **last_seen_id.txt** - This will containg the ID of the tweet that my_twitter_bot.py has seen last. 
+* **last_seen_id.txt** - This file contains the ID of the tweet that my_twitter_bot.py has seen last. 
