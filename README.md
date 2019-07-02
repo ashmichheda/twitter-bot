@@ -15,3 +15,9 @@ Twitter bot using Twitter APIs
 
 ### Twitter Bot functionality
 * This bot responds to tweets mentioning my account with the questions like 'How are you?' or 'All good?' with the text "I am good!"
+
+
+#### Bot demo screen-shot
+Here's my bot demo photo:
+
+<img src = "/twitter-bot-demo.PNG" width = "410" height = "300">
