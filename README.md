@@ -12,3 +12,6 @@ Twitter bot using Twitter APIs
 ### Files
 * **my_twitter_bot.py** - This is the main py file that includes all the logic.
 * **last_seen_id.txt** - This file contains the ID of the tweet that my_twitter_bot.py has seen last. 
+
+### Twitter Bot functionality
+* This bot responds to tweets mentioning my account with the questions like 'How are you?' or 'All good?' with the text "I am good!"
