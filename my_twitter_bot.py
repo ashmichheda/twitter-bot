@@ -46,7 +46,7 @@ def reply_to_tweets():
 		store_last_seen_id(last_seen_id, FILE_NAME)
 		print(str(mention.id) + " - " + mention.full_text)
 
-		if 'how are you' in mention.full_text.lower():
+		if "how are you" or 'all good' in mention.full_text.lower():
 			print('Found How are you!')
 			print('responding back ...')
 			api.update_status('@' + mention.user.screen_name + ' Hi! ' + 'I am doing good!', mention.id)
