@@ -1,4 +1,5 @@
 import tweepy
+import time
 
 print("This is my twitter Bot!!!")
 
@@ -31,15 +32,27 @@ def store_last_seen_id(last_seen_id, file_name):
 	f_write.close()
 	return
 
-# NOTE: Use 1145736989267771392 for testing
-last_seen_id = retrieve_last_seen_id(FILE_NAME)
-mentions = api.mentions_timeline(last_seen_id, tweet_mode ='extended')
 
-# mentions is like a list
-for mention in mentions:
+def reply_to_tweets():
+	print('Retrieving and replying to tweets .. ')
 
-	print(str(mention.id) + " - " + mention.text)
+	# NOTE: Use 1145736989267771392 for testing
+	last_seen_id = retrieve_last_seen_id(FILE_NAME)
+	mentions = api.mentions_timeline(last_seen_id, tweet_mode='extended')
 
-	if '#helloworld' in mention.text.lower():
-		print('Found #helloworld!')
-		print('responding back ...')
+	# mentions is like a list
+	for mention in reversed(mentions):
+		last_seen_id = mention.id
+		store_last_seen_id(last_seen_id, FILE_NAME)
+		print(str(mention.id) + " - " + mention.full_text)
+
+		if 'how are you' in mention.full_text.lower():
+			print('Found How are you!')
+			print('responding back ...')
+			api.update_status('@' + mention.user.screen_name + ' Hi! ' + 'I am doing good!', mention.id)
+
+
+# bot runs every 15 secs
+while True:
+	reply_to_tweets()
+	time.sleep(15)
